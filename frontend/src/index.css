@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+  }
+
+  /* * {
+    Removido @apply border-border; pois não existe no Tailwind padrão
+  } */
+
+  body {
+    @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700;
+    @apply focus:ring-primary-500 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100;
+    @apply hover:bg-gray-300 dark:hover:bg-gray-600 focus:ring-gray-500;
+  }
+
+  .btn-accent {
+    @apply bg-accent-600 text-white hover:bg-accent-700;
+    @apply focus:ring-accent-500 shadow-lg hover:shadow-xl;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg;
+    @apply border border-gray-200 dark:border-gray-700;
+    @apply transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1;
+  }
+
+  .input {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600;
+    @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply placeholder:text-gray-400 dark:placeholder:text-gray-500;
+    @apply transition-all duration-200;
+  }
+
+  .emotion-badge {
+    @apply px-3 py-1 rounded-full text-sm font-medium inline-flex items-center gap-2;
+  }
+
+  .emotion-joy {
+    @apply bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200;
+  }
+
+  .emotion-sadness {
+    @apply bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200;
+  }
+
+  .emotion-anger {
+    @apply bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200;
+  }
+
+  .emotion-fear {
+    @apply bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200;
+  }
+
+  .emotion-surprise {
+    @apply bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-200;
+  }
+
+  .emotion-disgust {
+    @apply bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200;
+  }
+
+  .emotion-neutral {
+    @apply bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-500 to-primary-700;
+  }
+
+  .gradient-accent {
+    @apply bg-gradient-to-br from-accent-500 to-accent-700;
+  }
+
+  .gradient-hero {
+    @apply bg-gradient-to-br from-primary-600 via-accent-600 to-purple-600;
+  }
+
+  .glass {
+    @apply bg-white/10 dark:bg-gray-900/10 backdrop-blur-lg;
+    @apply border border-white/20 dark:border-gray-800/20;
+  }
+
+  .audio-bar {
+    @apply w-1 bg-gradient-to-t from-primary-500 to-accent-500 rounded-full animate-wave;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800 rounded-lg;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 dark:bg-gray-600 rounded-lg hover:bg-gray-500 dark:hover:bg-gray-500;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+@keyframes emotion-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-emotion-pulse {
+  animation: emotion-pulse 2s ease-in-out infinite;
+}
+
+@keyframes recording {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-recording {
+  animation: recording 1.5s ease-in-out infinite;
+}
+
+/* Personalizado */
+
+
+button.inline-flex.items-center.justify-center.gap-2.font-medium.rounded-lg.transition-all.duration-200.focus\:outline-none.focus\:ring-2.focus\:ring-offset-2.bg-primary-600.text-white.hover\:bg-primary-700.focus\:ring-primary-500.shadow-lg.hover\:shadow-xl.px-6.py-3.text-lg.bg-white.text-primary-700.hover\:bg-gray-100.false {
+  color:#c026d3 var(--tw-gradient-to-position);
+}

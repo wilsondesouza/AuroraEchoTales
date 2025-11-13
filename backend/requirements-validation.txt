@@ -1,0 +1,45 @@
+# Requirements para Validação de Modelos - Aurora EchoTales
+# Instalar com: pip install -r requirements-validation.txt
+
+# === CUDA 12.4 ===
+# pip torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+
+# Instalar Llama-cpp-Python com CUDA
+# pip llama-cpp-python --prefer-binary --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cu124
+
+# === Core ML ===
+torch
+torchvision
+torchaudio
+transformers
+accelerate
+diffusers
+
+# === Quantização ===
+bitsandbytes
+optimum
+
+# === Áudio ===
+openai-whisper
+soundfile
+scipy
+librosa
+coqpit-config
+
+# === TTS ===
+# XTTS será instalado via git
+# pip install git+https://github.com/idiap/coqui-ai-TTS.git
+
+# === Utilitários ===
+psutil
+GPUtil
+numpy
+pillow
+pandas
+
+# === Testing ===
+pytest
+pytest-asyncio
+
+# === Opcional (para otimização) ===
+# faster-whisper    # Alternativa otimizada ao Whisper
