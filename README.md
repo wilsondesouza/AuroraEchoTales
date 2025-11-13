@@ -13,27 +13,11 @@ Aurora EchoTales é uma aplicação inovadora que combina **geração de histór
 - 📖 **Geração de Histórias**: Narrativas interativas com **LLaMA 2 7B** (4-bit quantized)
 - � **Análise de Emoção Dual**: 
   - Texto: **DistilRoBERTa** (7 emoções)
-  - Áudio: **Whisper** (transcrição) + **Emotion2Vec** (emoção)
+  - Áudio: **Whisper** (transcrição) + **Emotion2Vec** (emoção - fine-tunning)
 - 🎵 **Música Procedural**: **Riffusion** - Geração via prompts textuais adaptados à emoção
-- 🎤 **Narração Emocional**: **Bark** (Suno AI) - TTS com suporte nativo a emoções
+- 🎤 **Narração Emocional**: **XTTS** - TTS com suporte nativo a emoções
 - 🔄 **Integração Emocional**: Emoções detectadas influenciam música E narração
 - 💾 **Otimização de Recursos**: Carregamento sequencial de modelos, VRAM < 5GB
-
----
-
-## 📚 Documentação
-
-### 🎯 Início Rápido
-
-| Documento | Propósito | Quando Ler |
-|-----------|-----------|------------|
-| **[INDEX.md](./INDEX.md)** | 📑 Índice mestre | Navegação |
-
-### 📖 Documentação Técnica
-
-- **[DECISIONS.md](./DECISIONS.md)** - Decisões de modelos e arquitetura
-- **[docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)** - Arquitetura completa do sistema
-- **[PROPOSTA.md](./PROPOSTA.md)** - Visão original do projeto
 
 ---
 
@@ -55,12 +39,12 @@ AI Models: LLaMA 2 | Whisper | Emotion2Vec | DistilRoBERTa | Riffusion | Bark
 
 | Módulo | Modelo | VRAM | Latência |
 |--------|--------|------|----------|
-| 📖 Story | LLaMA 2 7B (4-bit) | 3.5GB | 8-12s |
+| 📖 Story | LLaMA 2 7B (4-bit) | 5GB | 8-12s |
 | 🎙️ STT | Whisper Small | 2GB | 5-10s |
 | 😊 Audio Emotion | Emotion2Vec | 1-2GB | 1-3s |
 | 📝 Text Emotion | DistilRoBERTa | 0.5GB | <1s |
 | 🎵 Music | Riffusion | 3GB | 20-30s |
-| 🎤 TTS | Bark | 4GB | 5-15s |
+| 🎤 TTS | XTTS | 2GB | 5-15s |
 
 **Pipeline Total**: 45-77s | VRAM Pico: 4GB ✅
 
@@ -230,7 +214,7 @@ pipe.enable_vae_slicing()        # Reduz ainda mais
 - [LLaMA 2](https://ai.meta.com/llama/)
 - [Whisper](https://github.com/openai/whisper)
 - [Riffusion](https://www.riffusion.com/)
-- [Bark](https://github.com/suno-ai/bark)
+- [XTTS](https://github.com/idiap/coqui-ai-TTS)
 - [Transformers](https://huggingface.co/docs/transformers/)
 
 ### **Comunidades**
@@ -261,8 +245,6 @@ Status: 🚧 Em Desenvolvimento Ativo
 [![CUDA](https://img.shields.io/badge/CUDA-12.1-green)]()
 [![License](https://img.shields.io/badge/License-TBD-lightgrey)]()
 
-[Documentação](./INDEX.md) • [Roadmap](./ROADMAP.md) • [Arquitetura](./docs/ARCHITECTURE.md)
-
 ---
 
 **Última Atualização**: 9 de Novembro de 2025  
@@ -275,17 +257,6 @@ Status: 🚧 Em Desenvolvimento Ativo
 ## 🤝 Contribuição
 
 Este é um projeto educacional/pessoal. Sinta-se livre para adaptar e expandir!
-
----
-
-## 📄 Licença
-
-Projeto de estudo pessoal. Modelos de IA seguem suas respectivas licenças:
-- DialoGPT: MIT (Microsoft)
-- Whisper: MIT (OpenAI)
-- DistilBERT: Apache 2.0
-- MusicGen: CC-BY-NC 4.0 (Meta)
-- MeloTTS: MIT
 
 ---
 
